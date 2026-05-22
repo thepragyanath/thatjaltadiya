@@ -23,6 +23,8 @@ export default function Home() {
 
   const [cart, setCart] = useState<any[]>([]);
 
+const [cartOpen, setCartOpen] = useState(false);
+
   const addToCart = (product: any) => {
 
     const existing = cart.find(
@@ -283,7 +285,10 @@ export default function Home() {
                 </p>
 
                 <button
-                  onClick={() => addToCart(product)}
+                  onClick={() => {
+  setCart([...cart, product]);
+  setCartOpen(true);
+}}
                   className="mt-6 w-full bg-gradient-to-r from-[#9333ea] to-[#7e22ce] text-white py-4 rounded-2xl font-semibold shadow-xl"
                 >
 
@@ -437,6 +442,83 @@ export default function Home() {
   </div>
 
 </a>
+{/* CART DRAWER */}
+
+<div
+  className={`fixed top-0 right-0 h-full w-[350px] bg-white shadow-2xl z-50 transition-transform duration-300 ${
+    cartOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+
+  <div className="p-6 flex justify-between items-center border-b">
+
+    <h2 className="text-2xl font-bold">
+      Your Cart 🛒
+    </h2>
+
+    <button
+      onClick={() => setCartOpen(false)}
+      className="text-2xl"
+    >
+      ✕
+    </button>
+
+  </div>
+
+  <div className="p-6 space-y-4 overflow-y-auto h-[80%]">
+
+    {cart.length === 0 ? (
+
+      <p className="text-gray-500">
+        Your cart is empty
+      </p>
+
+    ) : (
+
+      cart.map((item, index) => (
+
+        <div
+          key={index}
+          className="flex items-center gap-4 border-b pb-4"
+        >
+
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-20 h-20 rounded-xl object-cover"
+          />
+
+          <div>
+
+            <h3 className="font-semibold">
+              {item.name}
+            </h3>
+
+            <p className="text-purple-600 font-bold">
+              ₹{item.price}
+            </p>
+
+          </div>
+
+        </div>
+
+      ))
+
+    )}
+
+  </div>
+
+  <div className="p-6 border-t">
+
+    <button
+      className="w-full bg-purple-600 hover:bg-purple-700 text-white py-4 rounded-2xl font-semibold"
+    >
+      Proceed To Checkout
+    </button>
+
+  </div>
+
+</div>
     </main>
 
   );
