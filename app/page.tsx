@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 import {
@@ -22,14 +24,12 @@ export default function Home() {
     useState(false);
 
   const [cart, setCart] = useState<any[]>([]);
-
 const [cartOpen, setCartOpen] = useState(false);
 
   const addToCart = (product: any) => {
-
-    const existing = cart.find(
-      (item) => item.id === product.id
-    );
+  setCart((prev) => [...prev, product]);
+  setCartOpen(true);
+};
 
     if (existing) {
 
@@ -285,16 +285,11 @@ const [cartOpen, setCartOpen] = useState(false);
                 </p>
 
                 <button
-                  onClick={() => {
-  setCart([...cart, product]);
-  setCartOpen(true);
-}}
-                  className="mt-6 w-full bg-gradient-to-r from-[#9333ea] to-[#7e22ce] text-white py-4 rounded-2xl font-semibold shadow-xl"
-                >
-
-                  Add To Cart
-
-                </button>
+  onClick={() => addToCart(product)}
+  className="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-2xl font-semibold transition"
+>
+  Add To Cart 🛒
+</button>
 
               </div>
 
