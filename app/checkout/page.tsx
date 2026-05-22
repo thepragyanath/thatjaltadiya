@@ -241,7 +241,7 @@ export default function CheckoutPage() {
               //@ts-ignore
 
               const razor =
-                new window.Razorpay(options);
+  new (window as any).Razorpay(options);
 
               razor.open();
 
