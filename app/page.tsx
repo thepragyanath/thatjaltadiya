@@ -7,6 +7,7 @@ import {
   Heart,
   Menu,
   Camera,
+  MessageCircle,
 } from "lucide-react";
 
 import { useState } from "react";
@@ -333,8 +334,18 @@ export default function Home() {
 
           <button className="mt-10 bg-white text-black px-8 py-4 rounded-2xl font-semibold shadow-xl">
 
-            Follow On Instagram
+<a
+  href="https://instagram.com/thatjaltadiya"
+  target="_blank"
+>
 
+  <button className="mt-10 bg-white text-black px-8 py-4 rounded-2xl font-semibold shadow-xl hover:scale-105 transition">
+
+    Follow On Instagram 🎀
+
+  </button>
+
+</a>
           </button>
 
         </div>
@@ -411,6 +422,21 @@ export default function Home() {
 
       </footer>
 
+{/* WHATSAPP FLOATING BUTTON */}
+
+<a
+  href="https://wa.me/919007495071?text=Hi%20I%20want%20to%20order%20from%20ThatJaltadiya%20🎀"
+  target="_blank"
+  className="fixed bottom-6 right-6 z-50"
+>
+
+  <div className="bg-green-500 hover:bg-green-600 transition shadow-2xl rounded-full p-5 flex items-center justify-center hover:scale-110">
+
+    <MessageCircle className="text-white w-8 h-8" />
+
+  </div>
+
+</a>
     </main>
 
   );
