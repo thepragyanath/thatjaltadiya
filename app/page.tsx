@@ -425,7 +425,7 @@ export default function Home() {
 {/* WHATSAPP FLOATING BUTTON */}
 
 <a
-  href="https://wa.me/919007495071?text=Hi%20I%20want%20to%20order%20from%20ThatJaltadiya%20🎀"
+  href="https://wa.me/919007495070?text=Hi%20I%20want%20to%20order%20from%20ThatJaltadiya%20🎀"
   target="_blank"
   className="fixed bottom-6 right-6 z-50"
 >
